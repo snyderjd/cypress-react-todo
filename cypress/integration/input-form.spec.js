@@ -1,14 +1,15 @@
 describe('Input form', function() {
-    it('focuses input on load', function() {
-        cy.visit('http://localhost:3030')
+    beforeEach(() => {
+        cy.visit('/')
+    })
 
+    it('focuses input on load', function() {
         cy.focused().should('have.class', 'new-todo')
     })
 
-    it.only('accepts input', function() {
+    it('accepts input', function() {
         const typedText = 'Buy Milk'
 
-        cy.visit('http://localhost:3030')
         cy.get('.new-todo').type(typedText)
             .should('have.value', typedText)
     })
