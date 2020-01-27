@@ -4,13 +4,13 @@ const TodoItem = props =>
   <li className={props.isComplete ? "completed" : null}>
     <div className="view">
       <input className="toggle" type="checkbox" 
-        checked={props.isComplete}
+        checked={props.isComplete ? true : false}
         onChange={() => props.handleToggle(props.id)} />
       <label>
         {props.name}
       </label>
       <button className="destroy" 
-        onClick={props.handleDelete(props.id)}
+        onClick={() => props.handleDelete(props.id)}
       />
     </div>
   </li>
@@ -23,3 +23,4 @@ export default props =>
         handleToggle={props.handleToggle}
       />)}
   </ul>
+
